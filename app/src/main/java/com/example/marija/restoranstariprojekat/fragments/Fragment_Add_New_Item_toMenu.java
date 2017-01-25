@@ -46,18 +46,21 @@ public class Fragment_Add_New_Item_toMenu extends Fragment {
             @Override
             public void onClick(View v) {
 
-
                 Toast.makeText(getActivity(), " Snimljeno ", Toast.LENGTH_LONG).show();
-                Bundle extras = getActivity().getIntent().getExtras();
+                Bundle extras ;
+                extras =  getArguments();
+
                 String rezIdString = extras.getString("rezervation_id");
                 Servis.getInstance().addOrder(Integer.parseInt(rezIdString), number_item_spiner.getSelectedItem().toString(), menu_item_spiner.getSelectedItem().toString());
 
-                Intent intent2 = new Intent(getActivity().getApplicationContext(), ActivityHost.class);
+             /*   Intent intent2 = new Intent(getActivity().getApplicationContext(), ActivityHost.class);
                 intent2.putExtra("name", "FreagmentAddOrder");
                 intent2.putExtra("rezervationId", rezIdString);
                 intent2.putExtra("action", "onclick");
                 intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getActivity().getApplicationContext().startActivity(intent2);
+                getActivity().getApplicationContext().startActivity(intent2);*/
+
+                ((ActivityHost)getActivity()).callAddOrder("onclick",rezIdString);
 
             }
         });
@@ -70,14 +73,18 @@ public class Fragment_Add_New_Item_toMenu extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Odustali ste ", Toast.LENGTH_LONG).show();
 
-                Bundle extras = getActivity().getIntent().getExtras();
+                Bundle extras ;
+                extras =  getArguments();
+
                 String rezIdString = extras.getString("rezervation_id");
-                Intent intent2 = new Intent(getActivity().getApplicationContext(), ActivityHost.class);
+              /*  Intent intent2 = new Intent(getActivity().getApplicationContext(), ActivityHost.class);
                 intent2.putExtra("name", "FreagmentAddOrder");
                 intent2.putExtra("rezervationId", rezIdString);
                 intent2.putExtra("action", "onclick");
                 intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getActivity().getApplicationContext().startActivity(intent2);
+                getActivity().getApplicationContext().startActivity(intent2);*/
+
+                ((ActivityHost)getActivity()).callAddOrder("onclick",rezIdString);
 
             }
         });

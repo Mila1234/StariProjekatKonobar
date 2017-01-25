@@ -19,8 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.marija.restoranstariprojekat.R;
+import com.example.marija.restoranstariprojekat.activiry.ActivityHost;
 import com.example.marija.restoranstariprojekat.activiry.Activity_Selection_And_ListReservation;
-import com.example.marija.restoranstariprojekat.activiry.Activity_Add_New_Item_toMenu;
+
 import com.example.marija.restoranstariprojekat.adapters.HolderAdapterItem;
 import com.example.marija.restoranstariprojekat.adapters.MyCustomAdatperForTheList;
 
@@ -215,13 +216,13 @@ if (ListOrdersForSplitAction.isEmpty()){
                 Servis.getInstance().AddRezervation(rezervationIdString,time.getText().toString(), numbreOfTable_spinner.getSelectedItem().toString(),paidOrNot.isChecked(),listOfOrders);
 //if something is changed in rezervation , becouse it is open to user to change it using userinterface
 
-                intent = new Intent(getActivity().getApplicationContext(), Activity_Add_New_Item_toMenu.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("rezervation_id",rezervationIdString);
+              //  intent = new Intent(getActivity().getApplicationContext(), Activity_Add_New_Item_toMenu.class);
+              //  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+               // intent.putExtra("rezervation_id",rezervationIdString);
 
-                getActivity().getApplicationContext().startActivity(intent);
+               // getActivity().getApplicationContext().startActivity(intent);
 
-                //TODO
+                ((ActivityHost)getActivity()).callFragmentAddMenuItem("rezervation_id",rezervationIdString);
                 break;
             case R.id.paidOrNot:
                 if(paidOrNot.isChecked()){

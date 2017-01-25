@@ -48,7 +48,12 @@ public class ActivityHost extends AppCompatActivity {
         if (extras != null) {
             fragmetnName = extras.getString("name");
             Log.d("extras : ",extras.toString());
-            if(fragmetnName !=null && fragmetnName.equals("FragmentUserInfo")) {
+            if(fragmetnName !=null && fragmetnName.equals("FreagmentLogOut")) {
+                toolbar.setSubtitle(Servis.getInstance().toolBarTypeNameSurnameString());
+                FragmentManager fm = getSupportFragmentManager();
+                Fragment_Log_Out fragmentUserInfo = Fragment_Log_Out.getInstance();
+                fm.beginTransaction().replace(R.id.container_menu, fragmentUserInfo).commit();
+            }else  if(fragmetnName !=null && fragmetnName.equals("FragmentUserInfo")) {
                 toolbar.setSubtitle(Servis.getInstance().toolBarTypeNameSurnameString());
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentUserInfo fragmentUserInfo = FragmentUserInfo.getInstance();
@@ -121,9 +126,11 @@ public class ActivityHost extends AppCompatActivity {
                 return true;
             case R.id.action_logout:
                 //call popup win for logout
-                intent = new Intent(getApplicationContext(), Activity_Log_Out.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getApplicationContext().startActivity(intent);
+            //    intent = new Intent(getApplicationContext(), Activity_Log_Out.class);
+               // //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+               // getApplicationContext().startActivity(intent);
+
+                callFragmentLogOut();
                 return true;
             case R.id.action_add:
 
@@ -152,9 +159,12 @@ public class ActivityHost extends AppCompatActivity {
         fm.beginTransaction().replace(R.id.container_menu, fragmentLogout).commit();
     }
 
-    public void callFragmentAddMenuItem(){
+    public void callFragmentAddMenuItem(String key, String value){
         FragmentManager fm = getSupportFragmentManager();
         Fragment_Add_New_Item_toMenu fragment = Fragment_Add_New_Item_toMenu.getInstance();
+        Bundle arguments = new Bundle();
+        arguments.putString(key, value);
+        fragment.setArguments(arguments);
         fm.beginTransaction().replace(R.id.container_menu, fragment).commit();
     }
 

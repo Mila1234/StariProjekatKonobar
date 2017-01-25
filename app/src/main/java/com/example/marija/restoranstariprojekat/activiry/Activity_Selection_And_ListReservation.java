@@ -106,7 +106,8 @@ public class Activity_Selection_And_ListReservation extends AppCompatActivity  {
                 return true;
             case R.id.action_logout:
                 //call popup win for logout
-                intent = new Intent(getApplicationContext(), Activity_Log_Out.class);
+                intent = new Intent(getApplicationContext(), ActivityHost.class);
+                intent.putExtra("name","FreagmentLogOut");
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent);
                 return true;
