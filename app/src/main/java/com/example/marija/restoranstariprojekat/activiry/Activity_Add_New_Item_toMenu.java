@@ -54,7 +54,7 @@ public class Activity_Add_New_Item_toMenu extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.action_user_info:
-                Intent intent = new Intent(getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent = new Intent(getApplicationContext(), ActivityHost.class);
                 intent.putExtra("name", "FragmentUserInfo");
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent);
@@ -67,7 +67,7 @@ public class Activity_Add_New_Item_toMenu extends AppCompatActivity {
                 return true;
             case R.id.action_add:
 
-                Intent intent2 = new Intent(getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent2 = new Intent(getApplicationContext(), ActivityHost.class);
                 intent2.putExtra("name", "FreagmentAddOrder");
                 intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent2);

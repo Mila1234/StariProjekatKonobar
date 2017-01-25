@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.marija.restoranstariprojekat.R;
-import com.example.marija.restoranstariprojekat.activiry.Host_fragment_Activity;
+import com.example.marija.restoranstariprojekat.activiry.ActivityHost;
 import com.example.marija.restoranstariprojekat.adapters.HolderAdapterItem;
 import com.example.marija.restoranstariprojekat.data.UserData;
 import com.example.marija.restoranstariprojekat.adapters.MyCustomAdatperForTheList;
@@ -147,7 +147,7 @@ public class FragmentListReservations extends Fragment {
                     @Override
                     public void onClick(View v) {
                         //otvori prozor fragment FreagmentAddOrder
-                        Intent intent2 = new Intent(getActivity().getApplicationContext(), Host_fragment_Activity.class);
+                        Intent intent2 = new Intent(getActivity().getApplicationContext(), ActivityHost.class);
                         intent2.putExtra("name", "FreagmentAddOrder");
                         intent2.putExtra("rezervationId", Integer.toString(rezervation.getId()));
 

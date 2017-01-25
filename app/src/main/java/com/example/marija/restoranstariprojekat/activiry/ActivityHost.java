@@ -3,7 +3,6 @@ package com.example.marija.restoranstariprojekat.activiry;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,7 +22,7 @@ import com.example.marija.restoranstariprojekat.servis.Servis;
 /**
  * Created by marija.radisavljevic on 5/16/2016.
  */
-public class Host_fragment_Activity extends AppCompatActivity {
+public class ActivityHost extends AppCompatActivity {
 
     private static boolean firstTime = true;
 //    private Fragment fragment;
@@ -115,7 +114,7 @@ public class Host_fragment_Activity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.action_user_info:
-                Intent intent = new Intent(getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent = new Intent(getApplicationContext(), ActivityHost.class);
                 intent.putExtra("name","FragmentUserInfo");
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent);
@@ -128,7 +127,7 @@ public class Host_fragment_Activity extends AppCompatActivity {
                 return true;
             case R.id.action_add:
 
-                Intent intent2 = new Intent(getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent2 = new Intent(getApplicationContext(), ActivityHost.class);
                 intent2.putExtra("name", "FreagmentAddOrder");
                 intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent2);
@@ -172,20 +171,21 @@ public class Host_fragment_Activity extends AppCompatActivity {
             bundle.putString("action","plusbutton");
             freagmentAddOrder.setArguments(bundle);
             fm.beginTransaction().replace(R.id.container_menu, freagmentAddOrder).commit();
-        }else{
-            if (action !=null &&  action.equals("onclick")){
+        }else {
+            if (action != null && action.equals("onclick")) {
                 FragmentManager fm = getSupportFragmentManager();
                 FreagmentAddOrder freagmentAddOrder = FreagmentAddOrder.getInstance();
                 Bundle bundle = new Bundle();
-                bundle.putString("rezervationId",rezervationId);
-                bundle.putString("action","onclick");
+                bundle.putString("rezervationId", rezervationId);
+                bundle.putString("action", "onclick");
                 freagmentAddOrder.setArguments(bundle);
                 fm.beginTransaction().replace(R.id.container_menu, freagmentAddOrder).commit();
-            }else{
+            } else {
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentLogin fragmentLogin = FragmentLogin.getInstance();
                 fm.beginTransaction().replace(R.id.container_menu, fragmentLogin).commit();
             }
+        }
 
     }
 

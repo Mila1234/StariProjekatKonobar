@@ -4,25 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.marija.restoranstariprojekat.R;
-import com.example.marija.restoranstariprojekat.activiry.Activity_Log_Out;
-import com.example.marija.restoranstariprojekat.activiry.Host_fragment_Activity;
-import com.example.marija.restoranstariprojekat.adapters.MyCustomAdatperForTheList;
-import com.example.marija.restoranstariprojekat.data.UserData;
-import com.example.marija.restoranstariprojekat.database.Rezervation;
-import com.example.marija.restoranstariprojekat.servis.Servis;
-
-import java.util.ArrayList;
+import com.example.marija.restoranstariprojekat.activiry.ActivityHost;
 
 /**
  * Created by marija on 24.1.17.
@@ -67,7 +57,7 @@ public class Fragment_Log_Out extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Odjava", Toast.LENGTH_LONG).show();
 
-                Intent intent2 = new Intent(getActivity().getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent2 = new Intent(getActivity().getApplicationContext(), ActivityHost.class);
                 intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getActivity().getApplicationContext().startActivity(intent2);
 

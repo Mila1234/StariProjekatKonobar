@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.marija.restoranstariprojekat.R;
-import com.example.marija.restoranstariprojekat.activiry.Host_fragment_Activity;
+import com.example.marija.restoranstariprojekat.activiry.ActivityHost;
 import com.example.marija.restoranstariprojekat.servis.Servis;
 import com.example.marija.restoranstariprojekat.spiner.MySpinnerAdapter;
 
@@ -52,7 +52,7 @@ public class Fragment_Add_New_Item_toMenu extends Fragment {
                 String rezIdString = extras.getString("rezervation_id");
                 Servis.getInstance().addOrder(Integer.parseInt(rezIdString), number_item_spiner.getSelectedItem().toString(), menu_item_spiner.getSelectedItem().toString());
 
-                Intent intent2 = new Intent(getActivity().getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent2 = new Intent(getActivity().getApplicationContext(), ActivityHost.class);
                 intent2.putExtra("name", "FreagmentAddOrder");
                 intent2.putExtra("rezervationId", rezIdString);
                 intent2.putExtra("action", "onclick");
@@ -72,7 +72,7 @@ public class Fragment_Add_New_Item_toMenu extends Fragment {
 
                 Bundle extras = getActivity().getIntent().getExtras();
                 String rezIdString = extras.getString("rezervation_id");
-                Intent intent2 = new Intent(getActivity().getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent2 = new Intent(getActivity().getApplicationContext(), ActivityHost.class);
                 intent2.putExtra("name", "FreagmentAddOrder");
                 intent2.putExtra("rezervationId", rezIdString);
                 intent2.putExtra("action", "onclick");

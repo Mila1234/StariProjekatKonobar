@@ -7,9 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.marija.restoranstariprojekat.R;
 import com.example.marija.restoranstariprojekat.fragments.Fragment_Log_Out;
@@ -66,7 +63,7 @@ public class Activity_Log_Out extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.action_user_info:
-                Intent intent = new Intent(getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent = new Intent(getApplicationContext(), ActivityHost.class);
                 intent.putExtra("name","FragmentUserInfo");
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent);
@@ -79,7 +76,7 @@ public class Activity_Log_Out extends AppCompatActivity {
                 return true;
             case R.id.action_add:
 
-                Intent intent2 = new Intent(getApplicationContext(), Host_fragment_Activity.class);
+                Intent intent2 = new Intent(getApplicationContext(), ActivityHost.class);
                 intent2.putExtra("name", "FreagmentAddOrder");
                 intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(intent2);
